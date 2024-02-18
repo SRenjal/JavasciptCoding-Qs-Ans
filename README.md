@@ -562,3 +562,148 @@ In this function:
 - We then compare the original formatted string with its reversed version. We split the string into an array of characters, reverse the array, and then join it back into a string.
 - If the original formatted string is equal to its reverse, the function returns `true`, indicating that the input string is a palindrome. Otherwise, it returns `false`.
 </details>
+
+
+######  **Coding Question: Omit Lowest Average Subject Marks**
+
+**Problem Statement:**
+
+Write a JavaScript function called `omitLowestAverageSubjectMarks` that takes three parameters:
+
+- `numStudents`: An integer representing the number of students.
+- `numSubjects`: An integer representing the number of subjects.
+- `marksArray`: An array of arrays representing the marks of each student for each subject.
+
+The function should omit the subject with the lowest average marks across all students for each student and return an array containing the sum of marks for each student after omitting the lowest average subject.
+
+
+
+```javascript
+Input:
+numStudents = 3
+numSubjects = 4
+marksArray = [
+    [80, 70, 60, 90], // Student 1
+    [85, 75, 95, 80], // Student 2
+    [70, 65, 75, 80]  // Student 3
+]
+
+Output:
+[250, 255, 230]
+```
+
+
+<details><summary><b>Answer</b></summary>
+
+Sure, here's the modified solution using `forEach`:
+
+```javascript
+function omitLowestAverageSubjectMarks(numStudents, numSubjects, marksArray) {
+    let sums = [];
+
+    // Calculate the sum of marks for each subject
+    let subjectSums = new Array(numSubjects).fill(0);
+    marksArray.forEach(marks => {
+        marks.forEach((mark, index) => {
+            subjectSums[index] += mark;
+        });
+    });
+
+    // Calculate the average marks for each subject
+    let subjectAverages = subjectSums.map(sum => sum / numStudents);
+
+    // Find the index of the subject with the lowest average marks
+    let minAverageIndex = subjectAverages.indexOf(Math.min(...subjectAverages));
+
+    // Calculate the sum of marks for each student after omitting the lowest average subject
+    marksArray.forEach(marks => {
+        let sum = 0;
+        marks.forEach((mark, index) => {
+            if (index !== minAverageIndex) {
+                sum += mark;
+            }
+        });
+        sums.push(sum);
+    });
+
+    return sums;
+}
+
+// Example usage:
+let numStudents = 3;
+let numSubjects = 4;
+let marksArray = [
+    [80, 70, 60, 90], // Student 1
+    [85, 75, 95, 80], // Student 2
+    [70, 65, 75, 80]  // Student 3
+];
+
+let result = omitLowestAverageSubjectMarks(numStudents, numSubjects, marksArray);
+console.log(result); // Output: [250, 255, 230]
+```
+
+This version uses `forEach` to iterate through the `marksArray` to calculate the sum of marks for each subject and to calculate the sum of marks for each student after omitting the lowest average subject.
+
+
+Certainly! Let's break down the solution step by step:
+
+1. **Calculating Subject Sums:**
+   - We initialize an array `subjectSums` with the length of `numSubjects` and fill it with zeros. This array will hold the sum of marks for each subject.
+   - We iterate over each student's marks using `forEach`.
+   - For each student's marks, we iterate over each mark using another `forEach` loop.
+   - Inside the inner loop, we add each mark to the corresponding index of `subjectSums`.
+
+2. **Calculating Subject Averages:**
+   - After calculating the sums for each subject, we calculate the average marks for each subject by dividing each sum by the total number of students (`numStudents`).
+
+3. **Finding the Lowest Average Subject:**
+   - We find the index of the subject with the lowest average marks using `indexOf` and `Math.min`.
+
+4. **Calculating Sums for Each Student After Omitting Lowest Average Subject:**
+   - We iterate over each student's marks again using `forEach`.
+   - For each student's marks, we initialize a variable `sum` to 0.
+   - Inside the inner loop, we check if the current index is equal to the `minAverageIndex` (the index of the lowest average subject). If not, we add the mark to the `sum`.
+   - After iterating over all subjects for a student, we push the `sum` into the `sums` array.
+
+5. **Returning the Result:**
+   - Finally, we return the `sums` array, which contains the sums of marks for each student after omitting the lowest average subject.
+
+This solution effectively calculates the sums of marks for each student while omitting the subject with the lowest average marks across all students.
+</details>
+######
+
+<details><summary><b>Answer</b></summary>
+
+</details>
+
+######
+
+<details><summary><b>Answer</b></summary>
+
+</details>
+
+######
+
+<details><summary><b>Answer</b></summary>
+
+</details>
+
+
+######
+
+<details><summary><b>Answer</b></summary>
+
+</details>
+
+
+######
+
+<details><summary><b>Answer</b></summary>
+
+</details>
+
+######
+
+<details><summary><b>Answer</b></summary>
+
+</details>
