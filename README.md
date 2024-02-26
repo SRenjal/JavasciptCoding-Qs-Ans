@@ -281,7 +281,7 @@ This function iterates through the array and keeps track of the smallest and sec
 </details>
 
 
-###### You can remove duplicates from an array while keeping only unique elements using the `filter` method in JavaScript. Here's how you can do it:
+###### You can remove duplicates from an array while keeping only unique elements using the `filter` method in JavaScript.
 <details><summary><b>Answer</b></summary>
 
 
@@ -304,7 +304,7 @@ In this code:
 </details>
 
 
-###### Certainly! You can create a function in JavaScript to count the occurrences of each character in a string. Here's a way to do it:
+###### create a function in JavaScript to count the occurrences of each character in a string.
 <details><summary><b>Answer</b></summary>
 
 
@@ -434,9 +434,9 @@ In this version:
 - This approach simplifies the code and makes it more concise.
 </details>
 
-######
+###### implement a function to reverse a string without using the built-in `reverse` method in JavaScript.
 <details><summary><b>Answer</b></summary>
-Certainly! You can implement a function to reverse a string without using the built-in `reverse` method in JavaScript. Here's one way to do it:
+
 
 ```javascript
 function reverseString(str) {
@@ -460,9 +460,10 @@ In this function:
 - Finally, we return the `reversed` string, which now contains the original string in reverse order.
 </details>
 
-######
+###### a function in JavaScript to check whether two strings are anagrams of each other. An anagram is formed by rearranging the letters of one word or phrase to produce a new word or phrase using all the original letters exactly once. Here's how you can implement it:
+
 <details><summary><b>Answer</b></summary>
-You can create a function in JavaScript to check whether two strings are anagrams of each other. An anagram is formed by rearranging the letters of one word or phrase to produce a new word or phrase using all the original letters exactly once. Here's how you can implement it:
+
 
 ```javascript
 function areAnagrams(str1, str2) {
@@ -540,6 +541,7 @@ In this function:
 </details>
 
 ###### You can create a function in JavaScript to check if a string is a palindrome. A palindrome is a word, phrase, number, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization. Here's how you can implement it:
+
 <details><summary><b>Answer</b></summary>
 
 
@@ -564,7 +566,9 @@ In this function:
 </details>
 
 
-######  **Coding Question: Omit Lowest Average Subject Marks**
+###### Omit Lowest Average Subject Marks**
+
+<details><summary><b>Answer</b></summary>
 
 **Problem Statement:**
 
@@ -593,7 +597,7 @@ Output:
 ```
 
 
-<details><summary><b>Answer</b></summary>
+
 
 Sure, here's the modified solution using `forEach`:
 
@@ -670,6 +674,8 @@ Certainly! Let's break down the solution step by step:
 
 This solution effectively calculates the sums of marks for each student while omitting the subject with the lowest average marks across all students.
 </details>
+
+
 ######
 
 <details><summary><b>Answer</b></summary>
