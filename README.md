@@ -676,22 +676,101 @@ This solution effectively calculates the sums of marks for each student while om
 </details>
 
 
-######
+###### "needle in haystack" problem
 
 <details><summary><b>Answer</b></summary>
+
+Sure, the "needle in haystack" problem is a classic programming challenge where you have to find the occurrence of a substring (the "needle") within a larger string (the "haystack"). In JavaScript, you can solve it using various approaches. One common method is to use the `indexOf()` method for strings or `includes()` method if you just need to check for existence, or you can use regular expressions (`RegExp`) for more complex matching patterns. Here's an example using `indexOf()`:
+
+```javascript
+function findNeedle(haystack, needle) {
+    return haystack.indexOf(needle);
+}
+
+let haystack = "This is a haystack and we need to find a needle in it.";
+let needle = "needle";
+
+console.log(findNeedle(haystack, needle)); // Output: 31 (index of the needle in the haystack)
+```
+
+This function will return the index of the first occurrence of the needle in the haystack, or -1 if the needle is not found.
+
+If you want to implement the "needle in haystack" problem without using built-in functions like `indexOf()` or `includes()`, you can create your own function to iterate through the haystack and check for the needle. Here's a basic implementation using a loop:
+
+```javascript
+function findNeedle(haystack, needle) {
+    for (let i = 0; i <= haystack.length - needle.length; i++) {
+        let found = true;
+        for (let j = 0; j < needle.length; j++) {
+            if (haystack[i + j] !== needle[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            return i;
+        }
+    }
+    return -1; // Needle not found
+}
+
+let haystack = "This is a haystack and we need to find a needle in it.";
+let needle = "needle";
+
+console.log(findNeedle(haystack, needle)); // Output: 31 (index of the needle in the haystack)
+```
+
+This implementation manually checks each substring of the haystack against the needle to find a match. If a match is found, it returns the index where the needle starts in the haystack. If no match is found, it returns -1.
 
 </details>
 
-######
+###### Sure, here's a simple JavaScript function that takes two numbers as input and returns their sum:
 
 <details><summary><b>Answer</b></summary>
 
+
+```javascript
+function sum(a, b) {
+    return a + b;
+}
+
+// Example usage:
+let num1 = 5;
+let num2 = 10;
+console.log(sum(num1, num2)); // Output: 15
+```
+
+This `sum` function simply adds the two numbers together and returns the result. You can call this function with any two numbers you want to find their sum.
 </details>
 
-######
+###### JavaScript program to find the maximum number in an array
 
 <details><summary><b>Answer</b></summary>
+You can write a JavaScript program to find the maximum number in an array by iterating through the array and keeping track of the maximum number encountered so far. Here's one way to do it:
 
+```javascript
+function findMax(arr) {
+    if (arr.length === 0) {
+        return undefined; // Return undefined if the array is empty
+    }
+
+    let max = arr[0]; // Assume the first element is the maximum
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i]; // Update max if a larger element is found
+        }
+    }
+
+    return max; // Return the maximum number
+}
+
+// Example usage:
+let numbers = [10, 5, 20, 8, 15];
+console.log("Maximum number:", findMax(numbers)); // Output: Maximum number: 20
+```
+
+This program iterates through each element in the array and updates the `max` variable if it encounters a number greater than the current maximum. Finally, it returns the maximum number found in the array. If the array is empty, it returns `undefined`.
 </details>
 
 
