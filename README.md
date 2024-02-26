@@ -774,21 +774,218 @@ This program iterates through each element in the array and updates the `max` va
 </details>
 
 
-######
+###### create a JavaScript function that reverses a given string by iterating through the characters of the string in reverse order and concatenating them to form the reversed string. 
+<details><summary><b>Answer</b></summary>
+
+
+```javascript
+function reverseString(str) {
+    let reversed = '';
+    
+    // Iterate through the characters of the string in reverse order
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversed += str[i]; // Concatenate each character to the reversed string
+    }
+    
+    return reversed;
+}
+
+// Example usage:
+let inputString = "Hello, world!";
+console.log("Reversed string:", reverseString(inputString)); // Output: Reversed string: !dlrow ,olleH
+```
+
+In this function, `reversed` is initialized as an empty string. Then, the function iterates through the characters of the input string in reverse order (from the last character to the first character) using a for loop. Inside the loop, each character is concatenated to the `reversed` string. Finally, the reversed string is returned.
+
+Of course! You can use the built-in string methods `split()`, `reverse()`, and `join()` to reverse a string. Here's how you can do it:
+
+```javascript
+function reverseString(str) {
+    return str.split('').reverse().join('');
+}
+
+// Example usage:
+let inputString = "Hello, world!";
+console.log("Reversed string:", reverseString(inputString)); // Output: Reversed string: !dlrow ,olleH
+```
+
+In this function:
+
+1. `split('')`: This method splits the string into an array of individual characters.
+2. `reverse()`: This method reverses the order of elements in the array.
+3. `join('')`: This method joins the elements of the array back into a string.
+
+So, when you chain these methods together, you split the string into characters, reverse the order of characters, and then join them back together to form the reversed string.
+</details>
+
+
+###### create a JavaScript function that finds the longest word in a sentence by splitting the sentence into individual words and comparing their lengths. Here's how you can do it:
 
 <details><summary><b>Answer</b></summary>
 
+
+```javascript
+function findLongestWord(sentence) {
+    // Split the sentence into an array of words
+    const words = sentence.split(' ');
+    
+    // Initialize variables to keep track of the longest word and its length
+    let longestWord = '';
+    let maxLength = 0;
+    
+    // Iterate through each word in the array
+    words.forEach(word => {
+        // Update longestWord and maxLength if the current word is longer
+        if (word.length > maxLength) {
+            longestWord = word;
+            maxLength = word.length;
+        }
+    });
+    
+    return longestWord;
+}
+
+// Example usage:
+let sentence = "The quick brown fox jumped over the lazy dog";
+console.log("Longest word in the sentence:", findLongestWord(sentence)); // Output: Longest word in the sentence: jumped
+```
+
+In this function:
+
+1. `split(' ')`: This method splits the input sentence into an array of individual words based on spaces.
+2. The function iterates through each word in the array using `forEach()`.
+3. For each word, it compares its length with the current maximum length (`maxLength`). If the length of the current word is greater than `maxLength`, it updates `maxLength` and `longestWord` to the length and value of the current word, respectively.
+4. Finally, it returns the longest word found in the sentence.
+
+Certainly! You can use the `reduce()` method to find the longest word in a sentence. Here's how you can do it:
+
+```javascript
+function findLongestWord(sentence) {
+    // Split the sentence into an array of words
+    const words = sentence.split(' ');
+
+    // Use reduce to find the longest word
+    const longestWord = words.reduce((longest, current) => {
+        // Compare the lengths of the current word and the longest word found so far
+        return current.length > longest.length ? current : longest;
+    }, '');
+
+    return longestWord;
+}
+
+// Example usage:
+let sentence = "The quick brown fox jumped over the lazy dog";
+console.log("Longest word in the sentence:", findLongestWord(sentence)); // Output: Longest word in the sentence: jumped
+```
+
+In this function:
+
+1. `split(' ')`: This method splits the input sentence into an array of individual words based on spaces.
+2. `reduce()`: This method iterates over each word in the array and accumulates the longest word found so far.
+3. Inside the reducer function, for each iteration, it compares the length of the current word with the length of the longest word found so far. If the current word is longer, it becomes the new longest word.
+4. Finally, it returns the longest word found in the sentence.
+</details>
+
+###### Given an array containing numbers from 1 to N, with one number missing, find the missing number.
+
+<details><summary><b>Answer</b></summary>
+To find the missing number in an array containing numbers from 1 to N with one number missing, you can calculate the expected sum of all numbers from 1 to N using the formula for the sum of an arithmetic series. Then, you can subtract the sum of the numbers in the array from the expected sum to find the missing number. Here's how you can implement this in JavaScript:
+
+```javascript
+function findMissingNumber(arr) {
+    const n = arr.length + 1; // n is the total number of elements including the missing one
+    const expectedSum = (n * (n + 1)) / 2; // Sum of all numbers from 1 to N using the arithmetic series formula
+    
+    // Calculate the sum of the numbers in the array
+    const actualSum = arr.reduce((sum, num) => sum + num, 0);
+    
+    // The missing number is the difference between the expected sum and the actual sum
+    const missingNumber = expectedSum - actualSum;
+    
+    return missingNumber;
+}
+
+// Example usage:
+let numbers = [1, 2, 3, 5, 6, 7, 8, 9, 10]; // Missing number: 4
+console.log("Missing number:", findMissingNumber(numbers)); // Output: Missing number: 4
+```
+
+In this function:
+
+1. `n` is calculated as the total number of elements in the array plus 1, because one number is missing.
+2. `expectedSum` is calculated using the formula for the sum of an arithmetic series (1 + 2 + ... + N).
+3. `actualSum` is calculated by summing all the numbers in the array using the `reduce()` method.
+4. The missing number is then found by subtracting the actual sum from the expected sum.
+5. Finally, the missing number is returned.
+</details>
+
+###### Write a function that checks if a given string is a palindrome.
+<details><summary><b>Answer</b></summary>
+  To check if a given string is a palindrome, you can compare characters from the beginning and end of the string until you reach the middle of the string. If the characters match at each corresponding position, the string is a palindrome. Here's how you can implement this in JavaScript:
+
+```javascript
+function isPalindrome(str) {
+  const reversedStr = str.split('').reverse().join('');
+  return str === reversedStr;
+}
+
+console.log(isPalindrome('level'));
+// Output: true
+```
+
+In this function:
+
+1. `alphanumericStr` removes non-alphanumeric characters using a regular expression and converts the string to lowercase.
+2. The function then iterates through the string from the start and end simultaneously, comparing characters until it reaches the middle of the string.
+3. If any characters don't match, the function returns `false`, indicating that the string is not a palindrome. Otherwise, if all characters match, it returns `true`, indicating that the string is a palindrome.
+</details>
+
+######
+<details><summary><b>Answer</b></summary>
+  
+</details>
+
+######
+<details><summary><b>Answer</b></summary>
+  
 </details>
 
 
 ######
-
 <details><summary><b>Answer</b></summary>
-
+  
 </details>
 
 ######
-
 <details><summary><b>Answer</b></summary>
-
+  
 </details>
+
+
+######
+<details><summary><b>Answer</b></summary>
+  
+</details>
+
+######
+<details><summary><b>Answer</b></summary>
+  
+</details>
+
+######
+<details><summary><b>Answer</b></summary>
+  
+</details>
+
+
+######
+<details><summary><b>Answer</b></summary>
+  
+</details>
+
+######
+<details><summary><b>Answer</b></summary>
+  
+</details>
+
+
