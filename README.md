@@ -115,6 +115,33 @@ printStarPattern(5);
 
 This function will print a right triangle star pattern with the specified number of rows. You can adjust the `rows` parameter to change the size of the pattern.
 
+You can create a star pattern in JavaScript using the `repeat()` method along with loops. Here's an example of how you can create a simple star pattern:
+
+```javascript
+function createStarPattern(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let pattern = "*".repeat(i);
+        console.log(pattern);
+    }
+}
+
+// Example usage:
+createStarPattern(5);
+```
+
+This function `createStarPattern()` takes the number of rows as input and prints a star pattern where the number of stars increases by one in each row.
+
+Output:
+```
+*
+**
+***
+****
+*****
+```
+
+You can modify this code to create different patterns like a pyramid or reverse pyramid by adjusting the loop and `repeat()` logic accordingly.
+
 </details>
 
 ###### calculate the factorial of a number in JavaScript using a recursive or iterative approach. 
