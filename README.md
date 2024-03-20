@@ -1198,9 +1198,29 @@ These are just a few of the major features introduced in ES6. There are many mor
 Both `&&` and `||` operators are essential tools in JavaScript for handling conditional logic and controlling the flow of your code based on boolean expressions.
 </details>
 
-######
+######  check if an element occurs more than once in the array.
 <details><summary><b>Answer</b></summary>
-  
+  Certainly! You can utilize the `indexOf()` and `lastIndexOf()` methods to check if an element occurs more than once in the array. Here's how you can modify the code to achieve that:
+
+```javascript
+let array = [1, 2, 2, 3, 4, 5, 5, 3];
+let result = [];
+
+for (let i = 0; i < array.length; i++) {
+    if (array.indexOf(array[i]) === array.lastIndexOf(array[i])) {
+        result.push(array[i]);
+    }
+}
+
+console.log(result); // Output: [1, 4]
+```
+
+In this modified code:
+
+- The `indexOf()` method returns the first index at which a given element can be found in the array, and `lastIndexOf()` returns the last index at which a given element can be found in the array.
+- If both methods return the same index for a particular element, it means the element occurs only once in the array.
+- Such unique elements are then pushed into the `result` array.
+- Finally, `result` contains only the elements that occur once in the original array.
 </details>
 
 ######
