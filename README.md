@@ -1223,15 +1223,84 @@ In this modified code:
 - Finally, `result` contains only the elements that occur once in the original array.
 </details>
 
-######
+###### replace spaces in a string without using the built-in `replace()` function in JavaScript
 <details><summary><b>Answer</b></summary>
-  
+  If you want to replace spaces in a string without using the built-in `replace()` function in JavaScript, you can loop through the string character by character and manually replace spaces with your desired special character. Here's an example of how you can achieve this:
+
+```javascript
+function replaceSpacesWithSpecialChar(str, specialChar) {
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === ' ') {
+            result += specialChar;
+        } else {
+            result += str[i];
+        }
+    }
+    return result;
+}
+
+let str = "This is a string with spaces";
+let replacedStr = replaceSpacesWithSpecialChar(str, '_'); // Replace spaces with underscores
+console.log(replacedStr); // Output: "This_is_a_string_with_spaces"
+```
+
+This function `replaceSpacesWithSpecialChar()` takes two arguments: the input string `str` and the special character `specialChar` that you want to use for replacement. It loops through each character in the string and replaces spaces with the specified special character.
+
+Sure, you can use the `replace()` method in JavaScript to replace spaces in a string with special characters. Here's an example:
+
+```javascript
+let str = "This is a string with spaces";
+let replacedStr = str.replace(/ /g, "_"); // Replace spaces with underscores
+console.log(replacedStr); // Output: "This_is_a_string_with_spaces"
+```
+
+In this example, I'm replacing spaces with underscores (`_`). You can replace them with any special character you want by modifying the second argument of the `replace()` method.
 </details>
 
 
-######
+###### check if a number is a perfect square without using the built-in
 <details><summary><b>Answer</b></summary>
-  
+  You can check if a number is a perfect square without using the built-in `Math.sqrt()` function by using a simple algorithm that iterates through numbers until the square of the number exceeds the given input. Here's how you can implement it:
+
+```javascript
+function isPerfectSquare(number) {
+    if (number < 0) return false; // Negative numbers are not perfect squares
+
+    let i = 0;
+    while (i * i <= number) {
+        if (i * i === number) {
+            return true;
+        }
+        i++;
+    }
+    return false;
+}
+
+// Example usage:
+console.log(isPerfectSquare(16));  // Output: true (16 is a perfect square)
+console.log(isPerfectSquare(25));  // Output: true (25 is a perfect square)
+console.log(isPerfectSquare(10));  // Output: false (10 is not a perfect square)
+```
+
+In this function, we start from 0 and keep squaring numbers until the square exceeds the input number. If at any point we find the square equal to the input number, we return true, indicating it's a perfect square. If we exhaust all numbers without finding a match, we return false.
+
+You can write a function in JavaScript to check if a given number is a perfect square or not by taking the square root of the number and checking if it is an integer. Here's how you can do it:
+
+```javascript
+function isPerfectSquare(number) {
+    // Check if the square root is an integer
+    let squareRoot = Math.sqrt(number);
+    return squareRoot === Math.floor(squareRoot);
+}
+
+// Example usage:
+console.log(isPerfectSquare(16));  // Output: true (16 is a perfect square)
+console.log(isPerfectSquare(25));  // Output: true (25 is a perfect square)
+console.log(isPerfectSquare(10));  // Output: false (10 is not a perfect square)
+```
+
+In this function, `Math.sqrt(number)` calculates the square root of the given number, and `Math.floor(squareRoot)` checks if the square root is an integer by rounding it down and comparing it with the original square root. If they are equal, then the number is a perfect square.
 </details>
 
 ######
