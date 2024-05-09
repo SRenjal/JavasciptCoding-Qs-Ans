@@ -1303,9 +1303,62 @@ console.log(isPerfectSquare(10));  // Output: false (10 is not a perfect square)
 In this function, `Math.sqrt(number)` calculates the square root of the given number, and `Math.floor(squareRoot)` checks if the square root is an integer by rounding it down and comparing it with the original square root. If they are equal, then the number is a perfect square.
 </details>
 
+###### include nested keys
+<details><summary><b>Answer</b></summary>
+
+const arrObject = {
+  key1: 'value1',
+  key2: {
+    key3: 'value3',
+    key4: {
+      key5: 'value5',
+      key6:{
+        key7:"value 7"
+      }
+    }
+  }
+}
+
+var keys = []
+
+function getAllKeys(obj) {
+    for(let key in obj) {
+        if(typeof obj[key] === "object") {
+        key.push(key)
+            getAllKeys(obj[key]); // Corrected function name
+        } else {
+            keys.push(key);
+        } 
+    }
+}
+
+getAllKeys(arrObject);
+console.log(keys);
+
+  
+</details>
 ######
 <details><summary><b>Answer</b></summary>
   
 </details>
+
+######
+<details><summary><b>Answer</b></summary>
+  
+</details>
+
+######
+<details><summary><b>Answer</b></summary>
+  
+</details>
+
+######
+<details><summary><b>Answer</b></summary>
+  
+</details>
+
+
+
+
 
 
