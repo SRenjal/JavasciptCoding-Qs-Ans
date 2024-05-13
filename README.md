@@ -1306,6 +1306,8 @@ In this function, `Math.sqrt(number)` calculates the square root of the given nu
 ###### include nested keys
 <details><summary><b>Answer</b></summary>
 
+```javascript
+
 const arrObject = {
   key1: 'value1',
   key2: {
@@ -1335,7 +1337,7 @@ function getAllKeys(obj) {
 getAllKeys(arrObject);
 console.log(keys);
 
-  
+  ```
 </details>
 ######
 <details><summary><b>Answer</b></summary>
