@@ -1520,9 +1520,34 @@ This function will output the letter that occurs the most in the given word.
 </details>
 
 
-######
+###### function that takes an array of objects where each object contains a name and an array of marks, and returns an array of objects with the name and the average marks
 <details><summary><b>Answer</b></summary>
-  
+  Sure, here's a JavaScript function that takes an array of objects where each object contains a name and an array of marks, and returns an array of objects with the name and the average marks:
+
+```javascript
+function calculateAverageMarks(students) {
+    return students.map(student => {
+        const sum = student.marks.reduce((acc, mark) => acc + mark, 0);
+        const average = sum / student.marks.length;
+        return {
+            name: student.name,
+            averageMarks: average
+        };
+    });
+}
+
+// Example usage:
+const students = [
+    { name: "John", marks: [85, 90, 88] },
+    { name: "Alice", marks: [75, 80, 82] },
+    { name: "Bob", marks: [90, 92, 85] }
+];
+
+const result = calculateAverageMarks(students);
+console.log(result);
+```
+
+This function takes an array of students, calculates the average marks for each student, and returns an array of objects with the student's name and their average marks.
 </details>
 
 ######
