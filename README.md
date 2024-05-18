@@ -1339,15 +1339,186 @@ console.log(keys);
 
   ```
 </details>
-######
+######  
+  1
+ 2 2
+3 3 3
+
+Write a js function 
 <details><summary><b>Answer</b></summary>
+Sure, here's a JavaScript function that takes an integer `n` as input and prints a pattern similar to the one you provided:
+
+```javascript
+function printPattern(n) {
+    let result = "";
+    for (let i = 1; i <= n; i++) {
+        // Add spaces before the numbers
+        result += " ".repeat(n - i);
+        // Add the numbers
+        for (let j = 1; j <= i; j++) {
+            result += i + " ";
+        }
+        result += "\n";
+    }
+    console.log(result);
+}
+
+// Example usage:
+printPattern(3);
+```
+
+This function will print the pattern for the given value of `n`. For example, `printPattern(3)` will output:
+
+```
+  1 
+ 2 2 
+3 3 3 
+```
+
+Certainly! Here's the updated JavaScript function using `toString` to convert the numbers to strings:
+
+```javascript
+function printPattern(n) {
+    let result = "";
+    for (let i = 1; i <= n; i++) {
+        // Add spaces before the numbers
+        result += " ".repeat(n - i);
+        // Add the numbers
+        for (let j = 1; j <= i; j++) {
+            result += i.toString() + " ";
+        }
+        result += "\n";
+    }
+    console.log(result);
+}
+
+// Example usage:
+printPattern(3);
+```
+
+This function will produce the same output as before, with the numbers converted to strings using `toString()`.
   
 </details>
 
-######
+######  keep only non-duplicated characters in a string
 <details><summary><b>Answer</b></summary>
-  
+  To keep only non-duplicated characters in a string, you can modify the approach slightly. You'll still iterate through the string, but instead of checking if the character is already in the result string, you'll check if it appears more than once in the input string. Here's how you can do it:
+
+```javascript
+function keepNonDuplicatedCharacters(str) {
+    let result = '';
+
+    // Iterate through each character in the input string
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        // Check if the character appears only once in the input string
+        if (str.indexOf(char) === str.lastIndexOf(char)) {
+            // If the character appears only once, add it to the result
+            result += char;
+        }
+    }
+
+    return result;
+}
+
+// Example usage:
+const inputString = "programming";
+const nonDuplicatedString = keepNonDuplicatedCharacters(inputString);
+console.log(nonDuplicatedString); // Output: "iroan"
+```
+
+In this function:
+
+- It iterates through each character in the input string.
+- It uses `str.indexOf(char)` to find the first occurrence of the character and `str.lastIndexOf(char)` to find the last occurrence of the character. If they are the same, it means the character appears only once in the string.
+- If the character appears only once, it is added to the result string.
+- The function returns the result string containing only non-duplicated characters.
 </details>
+
+###### output only the objects with unique IDs
+<details><summary><b>Answer</b></summary>
+  If you want to output only the objects with unique IDs, where duplicates are excluded and only the non-duplicate objects are retained, you can modify the code as follows:
+
+```javascript
+let obj = [
+  { id: 1, name: "Hi" },
+  { id: 2, name: "Hello" },
+  { id: 1, name: "Hey" },
+];
+
+function removeDuplicates(array, property) {
+    const seen = {}; // Object to store unique IDs
+    const nonDuplicates = []; // Array to store non-duplicate objects
+    array.forEach((item) => {
+        const value = item[property];
+        if (!seen[value]) {
+            seen[value] = true;
+        } else {
+            seen[value] = false; // Mark the duplicate ID as false
+        }
+    });
+    array.forEach((item) => {
+        const value = item[property];
+        if (seen[value]) {
+            nonDuplicates.push(item); // Only push non-duplicate objects
+        }
+    });
+    return nonDuplicates;
+}
+
+const uniqueObjects = removeDuplicates(obj, 'id');
+console.log(uniqueObjects);
+```
+
+With this modification, the output will be:
+
+```json
+[
+  { "id": 2, "name": "Hello" }
+]
+```
+
+Explanation:
+- The object with ID `1` is marked as a duplicate because it appears more than once in the array.
+- The object with ID `2` is marked as a non-duplicate because it appears only once in the array. Therefore, it is included in the output.
+</details>
+
+###### find the letter that occurs the most
+<details><summary><b>Answer</b></summary>
+  Sure, let's say we have the word "banana". Here's a JavaScript function to find the letter that occurs the most:
+
+```javascript
+function maxOccurringLetter(word) {
+    // Create an object to store the frequency of each letter
+    let frequency = {};
+    
+    // Loop through each letter in the word
+    for (let letter of word) {
+        // Increment the count for the current letter
+        frequency[letter] = (frequency[letter] || 0) + 1;
+    }
+    
+    // Find the letter with the highest frequency
+    let maxLetter = '';
+    let maxFrequency = 0;
+    for (let letter in frequency) {
+        if (frequency[letter] > maxFrequency) {
+            maxLetter = letter;
+            maxFrequency = frequency[letter];
+        }
+    }
+    
+    return maxLetter;
+}
+
+// Test the function with the word "banana"
+let word = "banana";
+console.log("The letter that occurs the most in the word '" + word + "' is: " + maxOccurringLetter(word));
+```
+
+This function will output the letter that occurs the most in the given word.
+</details>
+
 
 ######
 <details><summary><b>Answer</b></summary>
